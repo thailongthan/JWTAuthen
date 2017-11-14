@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AuthController extends Controller
+class MeetingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,10 +21,10 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function create()
-    // {
-    //     //
-    // }
+    public function create()
+    {
+        //
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,38 +35,6 @@ class AuthController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            "name"=>"required",
-            "email"=>"required|email",
-            "password"=>"required|min:5"
-        ]);
-
-        $name= $request->name;
-        $email= $request->email;
-        $password = $request->password;
-
-        $user = new \App\User([
-            "name"=>$name,
-            "email" =>$email,
-            "password"=>bcrypt($password)
-        ]);
-        if($user->save())
-        {
-            $user->signin = [
-                "href" => "api/v1/user/signin",
-                "method"=>"POST",
-                "params"=>"email, password"
-            ];
-            $response = [
-                "msg" =>"User created",
-                "user" => $user,
-            ];
-            return response()->json($response, 201);
-        }
-        else
-        {
-            return response()->json($response,404);
-        }
     }
 
     /**
@@ -86,10 +54,10 @@ class AuthController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function edit($id)
-    // {
-    //     //
-    // }
+    public function edit($id)
+    {
+        //
+    }
 
     /**
      * Update the specified resource in storage.
